@@ -1,0 +1,33 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_qcloudcos_transfer (0.0.1):
+    - Flutter
+    - QCloudCOSXML/Transfer
+  - QCloudCore/WithoutMTA (6.1.0)
+  - QCloudCOSXML/Transfer (6.1.0):
+    - QCloudCore/WithoutMTA (= 6.1.0)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_qcloudcos_transfer (from `.symlinks/plugins/flutter_qcloudcos_transfer/ios`)
+
+SPEC REPOS:
+  trunk:
+    - QCloudCore
+    - QCloudCOSXML
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_qcloudcos_transfer:
+    :path: ".symlinks/plugins/flutter_qcloudcos_transfer/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_qcloudcos_transfer: 9e1feaf5223c7739f1eeb4d4c8b6a50386fc48eb
+  QCloudCore: 58e6c7050935c355f117d1d19ec79ae9272a0f5b
+  QCloudCOSXML: 48dee20ff29a2337407733464ec6fc1953184ae8
+
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+
+COCOAPODS: 1.11.3
