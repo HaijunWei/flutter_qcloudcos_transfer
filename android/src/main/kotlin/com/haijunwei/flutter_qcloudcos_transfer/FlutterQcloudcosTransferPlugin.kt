@@ -14,9 +14,7 @@ import com.tencent.cos.xml.model.`object`.PutObjectResult
 import com.tencent.cos.xml.transfer.COSXMLUploadTask.COSXMLUploadTaskResult
 import com.tencent.cos.xml.transfer.TransferConfig
 import com.tencent.cos.xml.transfer.TransferManager
-import com.tencent.qcloud.core.auth.BasicLifecycleCredentialProvider
-import com.tencent.qcloud.core.auth.QCloudLifecycleCredentials
-import com.tencent.qcloud.core.auth.SessionQCloudCredentials
+import com.tencent.qcloud.core.auth.*
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
@@ -136,22 +134,24 @@ class FlutterQcloudcosTransferPlugin : FlutterPlugin, ActivityAware, Messages.QC
     }
 }
 
-class MyCredentialProvider : BasicLifecycleCredentialProvider() {
+class MyCredentialProvider : QCloudCredentialProvider {
     var tmpSecretId = ""
     var tmpSecretKey = ""
     var sessionToken = ""
     var startTime: Long = 0
     var expiredTime: Long = 0
 
-
-    override fun fetchNewCredentials(): QCloudLifecycleCredentials {
-       return SessionQCloudCredentials(
+    override fun getCredentials(): QCloudCredentials {
+        return SessionQCloudCredentials(
             tmpSecretId,
             tmpSecretKey,
             sessionToken,
             startTime,
             expiredTime
         )
+    }
+
+    override fun refresh() {
     }
 
 }
